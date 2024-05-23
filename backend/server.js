@@ -24,9 +24,9 @@ app.get('/', (req, res) => {
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('MongoDB connected');
-        // Start server une fois la connexion établie
+        // Start server once the connection is established
         app.listen(port, () => {
             console.log(`Server running on port ${port}`);
         });
     })
-    .catch(err => console.error(err));
+    .catch(err => console.error('MongoDB connection error:', err));

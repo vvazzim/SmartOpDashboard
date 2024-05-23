@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Intervention = require('../models/interventions');
+const connectToDatabase = require('../db');
 
 // Helper function to find the most frequent item in an array
 const mostFrequent = (array) => {
@@ -21,11 +21,12 @@ const mostFrequent = (array) => {
 // Endpoint to get a paginated list of surgeons with their statistics
 router.get('/chirurgiens', async (req, res) => {
     try {
+        const db = await connectToDatabase();
         const page = Math.max(1, parseInt(req.query.page)) || 1;
         const limit = Math.max(1, parseInt(req.query.limit)) || 10;
         const skip = (page - 1) * limit;
 
-        const surgeons = await Intervention.aggregate([
+        const surgeons = await db.collection('interventions').aggregate([
             {
                 $group: {
                     _id: "$chirurgien",
@@ -40,9 +41,8 @@ router.get('/chirurgiens', async (req, res) => {
             { $sort: { count: -1 } },
             { $skip: skip },
             { $limit: limit }
-        ]).exec();
+        ]).toArray();
 
-        // Process the results to find the most frequent anesthesiste, infirmiere, salle, and intervention
         const processedSurgeons = surgeons.map(surgeon => ({
             chirurgien: surgeon._id || "N/A",
             specialty: surgeon.specialty || "N/A",
@@ -62,12 +62,13 @@ router.get('/chirurgiens', async (req, res) => {
 // Endpoint to search for surgeons by name
 router.get('/chirurgiens/search', async (req, res) => {
     try {
+        const db = await connectToDatabase();
         const query = req.query.query;
         const page = Math.max(1, parseInt(req.query.page)) || 1;
         const limit = Math.max(1, parseInt(req.query.limit)) || 10;
         const skip = (page - 1) * limit;
 
-        const surgeons = await Intervention.aggregate([
+        const surgeons = await db.collection('interventions').aggregate([
             { $match: { chirurgien: new RegExp(query, 'i') } },
             {
                 $group: {
@@ -83,9 +84,8 @@ router.get('/chirurgiens/search', async (req, res) => {
             { $sort: { count: -1 } },
             { $skip: skip },
             { $limit: limit }
-        ]).exec();
+        ]).toArray();
 
-        // Process the results to find the most frequent anesthesiste, infirmiere, salle, and intervention
         const processedSurgeons = surgeons.map(surgeon => ({
             chirurgien: surgeon._id || "N/A",
             specialty: surgeon.specialty || "N/A",

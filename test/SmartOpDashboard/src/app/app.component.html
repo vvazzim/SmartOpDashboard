@@ -5,5 +5,7 @@
 </div>
 
 <div class="main-content">
-  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+  <div style="height: 80vh; overflow-y: auto;" (scroll)="onScroll($event)">
+    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+  </div>
 </div>
