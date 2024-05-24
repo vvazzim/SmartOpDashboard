@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -24,7 +24,10 @@
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2",
     "ng2-smart-table": "^1.7.2",
-    "bootstrap": "^4.5.3"
+    "bootstrap": "^4.5.3",
+    "ng2-completer": "^3.0.3",
+    "ngx-infinite-scroll": "^10.0.1",
+    "css-loader": "^3.6.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.0",
