@@ -26,25 +26,27 @@ Ce projet consiste à développer une application web permettant de gérer et d'
 
 1. **Cloner le dépôt :**
     ```sh
-    git clone <URL_DU_DEPOT>
-    cd <REPERTOIRE_DU_DEPOT>
+    git clone https://github.com/vvazzim/SmartOpDashboard.git
+    cd SmartOp
     ```
 
 2. **Installer les dépendances :**
     ```sh
+    cd backend
     npm install
-    cd frontend
+    cd ..
+    cd SmartOpDashboard
     npm install
     ```
 
 3. **Lancer l'application :**
     - Backend :
         ```sh
-        npm start
+        node server.js
         ```
     - Frontend :
         ```sh
-        ng serve
+        npm run start
         ```
 
 ## Variables d'Environnement
@@ -67,10 +69,13 @@ Ce projet consiste à développer une application web permettant de gérer et d'
 - Utilisez **MongoDB Atlas** pour héberger la base de données.
 - Importez les données à partir du fichier `interventions.csv`.
 
+## Déploiement
+Le déploiement de cette application sur Vercel est en cours et n'est pas encore finalisé.
+
 ## Contributeurs
+- Wassim CHIKHI (chikhimedwassim@gmail.com)
 - Azzeddine Nacer (azzeddine.nacer@smartop.io)
 - Felix Barriere (felix.barriere@smartop.io)
 
 ## Licence
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus d'informations.
-
