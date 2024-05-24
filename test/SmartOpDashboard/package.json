@@ -2,9 +2,10 @@
   "name": "smart-op-dashboard",
   "version": "0.0.0",
   "scripts": {
+    "preinstall": "npm config set legacy-peer-deps true",
+    "build": "ng build --prod",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
