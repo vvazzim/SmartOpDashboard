@@ -20,12 +20,11 @@
     "@angular/platform-browser": "~11.2.0",
     "@angular/platform-browser-dynamic": "~11.2.0",
     "@angular/router": "~11.2.0",
-    "bootstrap": "^4.5.3",
-    "ng2-completer": "^9.0.1",
-    "ng2-smart-table": "^1.7.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "ng2-smart-table": "^1.7.2",
+    "bootstrap": "^4.5.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.0",

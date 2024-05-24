@@ -3,19 +3,18 @@
   "builds": [
     {
       "src": "package.json",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "build.sh",
       "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/smart-op-dashboard"
-      }
+      "config": { "distDir": "dist/smart-op-dashboard" }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/dist/smart-op-dashboard/$1"
     }
-  ],
-  "env": {
-    "NODE_VERSION": "14.x"
-  }
+  ]
 }

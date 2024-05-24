@@ -17,40 +17,10 @@ Ce projet consiste à développer une application web permettant de gérer et d'
 - **Pagination** : Affichage de 10 profils à la fois avec chargement automatique des profils suivants au scroll
 - **Barre de recherche** : Recherche par nom de chirurgien
 
-## Critères d'Évaluation
-- **Propreté du code** (côté serveur et interface)
-- **Justesse des résultats** (données précises en fonction de la base)
-- **Qualité du design** et de l’expérience utilisateur
-- **Performance des requêtes**
-
 ## Stack Technologique
 - **Frontend** : Angular
 - **Backend** : Node.js avec Express
 - **Base de données** : MongoDB
-
-## Instructions de Déploiement
-
-### Backend
-- **server.js** : Point d'entrée de l'application backend
-- **routes/interventions.js** : Contient les endpoints pour gérer les interventions
-- **models/interventions.js** : Modèle Mongoose pour les interventions
-
-### Frontend
-- **app.module.ts** : Module principal de l'application Angular
-- **app.component.ts** : Composant principal de l'application
-- **app.component.html** : Template principal de l'application
-
-### Base de Données
-- Utilisez **MongoDB Atlas** pour héberger la base de données.
-- Importez les données à partir du fichier `interventions.csv`.
-
-### Déploiement sur Vercel
-- Configurez un fichier **vercel.json** pour définir les commandes de build et les variables d'environnement.
-- Utilisez un script **build.sh** pour gérer les dépendances et le build de l'application Angular.
-
-## Variables d'Environnement
-- **MONGODB_URI** : URI de connexion à la base de données MongoDB
-- **PORT** : Port sur lequel l'application Express écoute
 
 ## Instructions d'Installation
 
@@ -76,6 +46,26 @@ Ce projet consiste à développer une application web permettant de gérer et d'
         ```sh
         ng serve
         ```
+
+## Variables d'Environnement
+- **MONGODB_URI** : URI de connexion à la base de données MongoDB
+- **PORT** : Port sur lequel l'application Express écoute
+
+## Structure du Projet
+
+### Backend
+- **server.js** : Point d'entrée de l'application backend
+- **routes/interventions.js** : Contient les endpoints pour gérer les interventions
+- **models/interventions.js** : Modèle Mongoose pour les interventions
+
+### Frontend
+- **app.module.ts** : Module principal de l'application Angular
+- **app.component.ts** : Composant principal de l'application
+- **app.component.html** : Template principal de l'application
+
+## Base de Données
+- Utilisez **MongoDB Atlas** pour héberger la base de données.
+- Importez les données à partir du fichier `interventions.csv`.
 
 ## Contributeurs
 - Azzeddine Nacer (azzeddine.nacer@smartop.io)
